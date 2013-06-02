@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <style>
+
+    body {
+        background :#fbf8f4 url(images/blue.jpg) repeat top left;
+    }
+    #next{
+      text-decoration: underline;
+    	font-size: medium;
+    	font-family: arial black;
+    	position:absolute;
+    	bottom: 15%;
+    	left:75%;
+    	display: none;
+    }
+    button{
+    	background:transparent;
+    	border-style: none;
+    	cursor: pointer;
+    	position:absolute;
+
+    }
+    canvas{
+    	width:80%;
+    	height: 80%;
+    	margin-top: 5%;
+    	margin-bottom: 5%;
+    }
+   
+  /*!
+ * Bootstrap v2.1.1
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{
+ 	display:block;
+ 	}
+    </style>
+	   <script>
+function toopening2(){
+	window.location="opening2.html";
+}
+
+	 var w=window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h=window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+	var canvas;
+	var context;
+	var img = new Image();
+	var imgX = 0;
+	var imgY=0;
+	var up= true;	
+  window.onload = function(){
+	
+
+		img.src = "images/opening.png";
+        canvas = document.getElementById("myCanvas");
+        context= canvas.getContext("2d");
+
+		setInterval(draw, 10);
+	};
+	
+	
+				
+	function draw(){
+
+		context.drawImage(img, imgX, imgY,img.width, img.height-100,0, 0, w, h);
+			if(up){
+			img.height--;
+			img.width--;
+		if(img.height<=1950&&img.width<=2500){
+			up=false;
+			document.getElementById('opening').play();
+			document.getElementById('next').style.display="block";
+
+		}}
+	}
+	
+			
+	</script>
+    	<script type="text/javascript" src="js/jquery.min.1.9.js"></script>
+
+
+</script>
+    </head>
+	<body>
+	
+
+    <center>
+    	<button id="next" onclick="toopening2();"><img src="images/arrows.png" style="height:35px;width:90px;"></img></button>
+    	
+                <canvas id="myCanvas" width="1240" height="600"></canvas>
+        <audio id="opening">
+			<source src="audio/opening.ogg" type="audio/ogg">
+  			<source src="audio/opening.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="openingmusic" autoplay>
+			<source src="music/opening.ogg" type="audio/ogg">
+  			<source src="music/opening.mp3" type="audio/mpeg">
+		</audio>
+		
+    </center>
+    </body>
+</html>
+
+
